@@ -1,0 +1,206 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: “Rubik”, sans-serif;
+}
+body {
+  height: 100vh;
+  background: #b2cee0;
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; */
+}
+
+header .ameaHeaderImage {
+  width: 250px;
+  padding: 15px;
+  
+}
+
+
+.container {
+  width: 500px;
+  height: 550px;
+  background-color: white;
+  box-shadow: 15px 30px 35px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  -webkit-perspective: 300px;
+  perspective: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+}
+
+.images {
+  height: 150px;
+  width: 150px;
+  position: relative;
+  margin: 32px auto;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.images img {
+  width: 145px;
+}
+
+.head,
+.tail {
+  position: absolute;
+  width: 100px;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.tail {
+  transform: rotateX(180deg);
+}
+
+/********** !Animations **********/
+/* I have used 180 ° more for the head image here. Because I had already rotated the tail image at a 180-degree angle. So in this case we have used less than 180-degree value in the case of the tail coin. */
+@keyframes spin-tail{
+  0%{
+      transform: rotateX(0);
+  }
+  100%{
+      transform: rotateX(1980deg);
+  }
+}
+@keyframes spin-head{
+  0%{
+      transform: rotateX(0);
+  }
+  100%{
+      transform: rotateX(2160deg);
+  }
+}
+
+/* !Results */
+.results{
+  display: flex;
+  justify-content: space-between;
+  color: #333;
+  padding: 20px;
+  /* margin-top: 55px; */
+  box-shadow: 0 0 10px rgba(0, 95, 143, 0.25);
+  border-radius: 10px;
+  font-weight: 900;
+  height: 70px;
+  font-size: 1.5rem;
+}
+
+
+/* !Buttons */
+.buttons{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 60px;
+}
+
+ button{
+  width: 150px;
+  padding: 15px;
+  border: none;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+/*! Guess Buttons */
+.guess {
+  display: flex;
+  flex-direction: column;
+}
+
+.guessButtons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.guess button {
+  background-color: blue;
+}
+
+#flipCoin{
+  background-color: green;
+  color: #ffffff;
+}
+#flip-button:disabled{
+  background-color: #e1e0ee;
+  border-color: #e1e0ee;
+  color: #101020;
+}
+#resetGame{
+  background-color: red;
+  color: white;
+}
+
+/* #resetGame:hover {
+  background-color: transparent;
+  color: black;
+  border: 3px sollid #333;
+} */
+
+/*! footer */
+
+footer p{
+  position: absolute;
+  bottom: 0;
+  left: 45%;
+}
+
+svg {
+  display: block;
+  margin: 10px;
+  width: 300px;
+  height: 100px;
+}
+
+path {
+  width: 300px;
+  height: 150px;
+  transform: rotate(45deg); /* Rotate 45 degrees */ 
+}
+
+/* !Media Queries */
+@media (max-width: 768px) {
+  body {
+    background-color: white;
+    flex-direction: column;
+  }
+
+  header .ameaHeaderImage {
+    width: 200px;
+    
+  }
+ 
+  .container {
+    width: 100%;
+    margin-top: 0px;
+    flex-direction: row;
+    background-color: white;
+    box-shadow: none;
+    padding: 10px;
+  }
+
+  .buttons {
+    gap: 10px;
+  }
+
+  .results {
+    margin-bottom: 40px;
+  }
+
+  footer{
+    position: absolute;
+    bottom: 0;
+    left: 30%;
+   }
+   
+}
