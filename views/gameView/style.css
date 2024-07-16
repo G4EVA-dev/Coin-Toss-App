@@ -17,10 +17,9 @@ body {
   flex-direction: column; */
 }
 
-header .ameaHeaderImage {
-  width: 250px;
-  padding: 15px;
-  
+.title h1 {
+  color: red;  
+  font-size: 2rem;
 }
 
 
