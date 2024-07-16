@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="main.css" />
     <title>AmeaAcrchives</title>
   </head>
-  <body class="bg-slate-100">
+  <body class="bg-slate-100 overflow-hidden">
     <div
       id="app"
       class="flex m-auto w-full bg-[url('/images/AmeaPattern.svg')] bg-repeat bg-cover min-h-screen justify-center items-center relative"
@@ -23,6 +23,7 @@
         </p>
         <div class="flex m-auto justify-center mt-7">
           <button
+            id="playButton"
             class="text-white text-center font-medium text-xl border-2 rounded-md px-5 py-2"
           >
             Play
@@ -53,5 +54,14 @@
         </svg>
       </div>
     </div>
+
+    <!-- !Routing to Next Page -->
+    <script>
+      document
+        .getElementById("playButton")
+        .addEventListener("click", function () {
+          window.location.href = "views/gameView/gameView.html";
+        });
+    </script>
   </body>
 </html>
