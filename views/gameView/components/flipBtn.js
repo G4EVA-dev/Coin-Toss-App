@@ -8,7 +8,8 @@ export const flipBtnAction = function (){
     let machineGuess = gameDataStore.setRandomMachineGuess();
     if(machineGuess){
         setTimeout(()=>{
-            documentElementStore.coin.style.animation = "spin-head 3s forwards";   
+            documentElementStore.coin.style.animation = "spin-head 3s forwards";
+            console.log("headSpins") 
         },100)
     }else{
         setTimeout(()=>{
