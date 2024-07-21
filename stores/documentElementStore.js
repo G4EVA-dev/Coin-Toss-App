@@ -4,4 +4,5 @@ export default {
     headGuessBtn : document.getElementById("headGuess"),
     tailGuessBtn : document.getElementById("tailGuess"),
     coin : document.querySelector(".coin"),
+
 }
