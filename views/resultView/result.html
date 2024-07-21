@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="main.css" />
-    <title>AmeaAcrchives</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../gameView/style.css">
+    <title>results</title>
 </head>
 <body class="bg-slate-100">
     <div id="app" class="flex m-auto h-[600px] w-[450px] bg-[url('/images/AmeaPattern.svg')] bg-repeat justify-center items-center relative">
         <div class="w-3/4 h-1/2">
-            <div class="text-5xl text-white font-semibold">Head or Tail?</div>
-            <p class="text-white mt-7 font-medium text-xl">
-                Welcome to Head or Tail. This game is brought to you by 
-                The Amea Archives. The goal of the game is simple: Let's see
-                how fast you can make accurate judgments. You have to make a guess
-                and toss a coin 20 times. Ready?
-            </p>
+            <div class="text-5xl text-white font-semibold">Your Result</div>
+            <div class="mt-7">
+                <div class="flex mb-4 gap-4 items-center">
+                    <div class="w-16 h-16 rounded-full border-2 flex justify-center items-center text-white text-2xl">14</div>
+                    <div>
+                        <p class="text-2xl text-white leading-3">Correct</p>
+                        <p class="text-2xl text-white">Guesses</p>
+                    </div>
+                </div>
+                <div class="flex mb-4 gap-4 items-center">
+                    <div class="w-16 h-16 rounded-full border-2 flex justify-center items-center text-white text-2xl">16</div>
+                    <div>
+                        <p class="text-2xl text-white leading-3">Minutes</p>
+                        <p class="text-2xl text-white">Spent</p>
+                    </div>
+                </div>
+            </div>
             <div class="flex m-auto justify-center mt-7">
-                <a href="./game.html"><button class="text-white text-center font-medium text-xl border-2 rounded-md px-5 py-2">Play</button></a>
+                <a href="./game.html"><button class="text-white text-center font-medium text-xl border-2 rounded-md px-5 py-2">Play Again</button></a>
             </div>
         </div>
         <div class="flex m-auto absolute bottom-2 right-2">
@@ -29,14 +39,5 @@
             </svg>
         </div>
     </div>
-
-    <!-- !Routing to Next Page -->
-    <script>
-      document
-        .getElementById("playButton")
-        .addEventListener("click", function () {
-          window.location.href = "views/gameView/gameView.html";
-        });
-    </script>
-  </body>
+</body>
 </html>
