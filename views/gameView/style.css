@@ -2,4 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes spin-tail {
+  0% {
+    transform: rotateX(0);
+  }
+  100% {
+    transform: rotateX(1980deg);
+  }
+}
+
+@keyframes spin-head {
+  0% {
+    transform: rotateX(0);
+  }
+  100% {
+    transform: rotateX(2160deg);
+  }
+}
+
+.head, .tail {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.tail {
+  transform: rotateX(180deg);
+}
 
