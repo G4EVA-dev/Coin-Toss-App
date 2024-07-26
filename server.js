@@ -4,7 +4,7 @@ import db from './models/db.js';
 import { handleUserRoutes } from './routes/user.js';
 
 
-const port = process.env.PORT || 443;
+const port = process.env.PORT || 3001;
 
 const server = http.createServer((req, res) => {
   console.log(`Request for ${req.url} of method: ${req.method} received.`);
