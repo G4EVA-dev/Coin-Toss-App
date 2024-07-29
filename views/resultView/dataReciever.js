@@ -37,7 +37,7 @@ export const restorePreviousPage = async ()=>{
 
 export const requestResultData =  async (resultID)=>{
     try {
-        let response = await fetch(`http://localhost:443/result?id=${resultID}`)
+        let response = await fetch(`/result?id=${resultID}`)
         let data = await response.json()
         document.querySelector("#correctGuesses").textContent = data?.numberOfCorrectGuesses
         document.querySelector("#minutesSpent").textContent = data?.minutesSpent
