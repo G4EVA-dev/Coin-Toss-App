@@ -4,58 +4,73 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Toss Coin</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header>
-      <img
-        src="/images/aarchives.svg"
-        alt="amea-archives"
-        class="ameaHeaderImage"
-      />
-    </header>
-
-    <div class="container">
-      <header></header>
-      <!-- <div class="title">
-        <h1>Toss The Coin</h1>
-      </div> -->
-
-      <div class="results">
-        <p id="headsCount">Heads: 0</p>
-        <p id="tailsCount">Tails: 0</p>
-      </div>
-
-      <div class="coin images">
-        <div class="head">
-          <img id="coinHead" src="/images/22-original.jpg" alt="head" />
-        </div>
-
-        <div class="tail">
-          <img id="coinTail" src="/images/21-original.jpg" alt="tail" />
-        </div>
-      </div>
-
-      <div class="guess">
-        <h2 style="text-align: center; margin-bottom: 25px">Guess</h2>
-        <div class="guessButtons">
-          <button id="headGuess" class="bg-blue-700">Head</button>
-          <button id="tailGuess" class="bg-blue-700">Tail</button>
-        </div>
-      </div>
-
-      <!-- Flip Buttons -->
-      <div class="buttons">
-        <button id="flipCoin">Flip Coin</button>
-        <button id="resetGame">Reset</button>
-      </div>
-    </div>
-
-    <footer>
-      <p>2024&copy;AmeaArchives</p>
-    </footer>
-
+    <link rel="stylesheet" href="../gameView/style.css">
     
-    <script src="./gameView.js" type="module"></script>
+  </head>
+  <body class="h-screen bg-slate-300">
+    <div
+      class="container flex m-auto h-[600px] w-[450px] justify-center items-center relative flex-col bg-white"
+    >
+      <div class="text-center">
+        <h1 class="text-red-600 font-extrabold text-[32px]">Head or Tail?</h1>
+        <p>Make your guess</p>
+      </div>
+
+      <div class="w-full flex justify-around items-center gap-[25px] mt-[25px]">
+        <button
+          id="headGuess"
+          class="w-[65px] text-[24px] border-2 border-black font-bold px-2 rounded-md"
+        >
+          H
+        </button>
+        <button
+          id="tailGuess"
+          class="w-[65px] text-[24px] border-2 border-black font-bold px-2 rounded-md"
+        >
+          T
+        </button>
+      </div>
+
+      <div id="coin" class="coin images h-36 w-36 relative mx-auto mt-8">
+        <div class="absolute w-full h-full transform rotate-0">
+          <div  class="head absolute w-full h-full">
+            <img
+              id="coinHead"
+              src="/public/images/22-original.jpg"
+              alt="head"
+              class="w-36"
+            />
+          </div>
+          <div class="tail absolute w-full h-full hidden">
+            <img
+              id="coinTail"
+              src="/public/images/21-original.jpg"
+              alt="tail"
+              class="w-36"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center text-[20px] w-[156px] mt-[25px]">
+        <p>Now tap the coin to toss it!</p>
+      </div>
+
+      <footer
+        class="w-full flex justify-between items-center mb-0 absolute p-2 bottom-0"
+      >
+        <div>
+          <h1 id="gameCount" class="text-[20px] font-bold">20 rounds left</h1>
+        </div>
+        <div>
+          <img
+            src="/public/images/aarchives.svg"
+            alt="amea-archives"
+            class="w-21"
+          />
+        </div>
+      </footer>
+    </div>
+    <script type="module" src="./gameView.js"></script>
   </body>
 </html>

@@ -5,21 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../gameView/style.css">
     <title>results</title>
+    <script type="module" src="./pageLoader.js"></script>
 </head>
 <body class="bg-slate-100">
-    <div id="app" class="flex m-auto h-[600px] w-[450px] bg-[url('/images/AmeaPattern.svg')] bg-repeat justify-center items-center relative">
+    <div id="app" class="hidden m-auto h-[600px] w-[450px] bg-[url('/images/AmeaPattern.svg')] bg-repeat justify-center items-center relative">
         <div class="w-3/4 h-1/2">
             <div class="text-5xl text-white font-semibold">Your Result</div>
             <div class="mt-7">
                 <div class="flex mb-4 gap-4 items-center">
-                    <div class="w-16 h-16 rounded-full border-2 flex justify-center items-center text-white text-2xl">14</div>
+                    <div id="correctGuesses" class="w-16 h-16 rounded-full border-2 flex justify-center items-center text-white text-2xl">14</div>
                     <div>
                         <p class="text-2xl text-white leading-3">Correct</p>
                         <p class="text-2xl text-white">Guesses</p>
                     </div>
                 </div>
                 <div class="flex mb-4 gap-4 items-center">
-                    <div class="w-16 h-16 rounded-full border-2 flex justify-center items-center text-white text-2xl">16</div>
+                    <div id="minutesSpent" class="w-16 h-16 rounded-full border-2 flex justify-center items-center text-white text-2xl">16</div>
                     <div>
                         <p class="text-2xl text-white leading-3">Minutes</p>
                         <p class="text-2xl text-white">Spent</p>
@@ -39,5 +40,6 @@
             </svg>
         </div>
     </div>
+    <script type="module" src="./dataReciever.js"></script>
 </body>
 </html>

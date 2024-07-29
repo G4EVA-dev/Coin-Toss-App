@@ -6,7 +6,10 @@ export const playerGuess = {
         }else{
             this.guess = 0;
         }
-    }
+    },
+    resetGuess(){
+        this.guess = null
+    },
 }
 export const headGuess = {
     _isChoosen : false,

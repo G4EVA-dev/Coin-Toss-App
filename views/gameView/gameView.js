@@ -3,6 +3,7 @@ import { headClickAction } from "./components/headGuessBtn";
 import { tailClickAction} from "./components/tailGuessBtn";
 import { startGame } from "./components/gameLogic";
 
+
 //!Check if the user has played before
 // let previousResults = getCookie("coinGameResults");
 // if (previousResults) {
@@ -15,9 +16,11 @@ import { startGame } from "./components/gameLogic";
 //   console.log("No previous results found.");
 // }
 
+
 documentElementStore.headGuessBtn.addEventListener("click", headClickAction);
 documentElementStore.tailGuessBtn.addEventListener("click", tailClickAction);
-documentElementStore.flipBtn.addEventListener("click", startGame);
+documentElementStore.coin.addEventListener("click", startGame);
+
 
   //! Checks number of time Player plays.
 //   if (roundsPlayed === 5) {

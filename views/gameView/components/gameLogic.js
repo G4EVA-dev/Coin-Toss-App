@@ -1,9 +1,10 @@
 import gameDataStore from "../../../stores/gameDataStore";
 import { playerGuess } from "../../../stores/guessStore";
-import { flipBtnAction } from "./flipBtn";
+import { flipCoin } from "./flipBtn";
 import documentElementStore from "../../../stores/documentElementStore";
 import sounds from "../../../stores/soundStore";
 import { startCelebration } from "../../../stores/confettiStore";
+import btnColorStore from "../../../stores/btnColorStore";
 
 
 export const startGame = function(){
@@ -13,7 +14,7 @@ export const startGame = function(){
         return
       } 
       documentElementStore.coin.style.animation = "none";
-      flipBtnAction();
+      flipCoin();
       computerGameLogic();
         
 }
@@ -21,12 +22,13 @@ export const startGame = function(){
 function computerGameLogic(){
     updateData();
     comparisonLogic();
-    gameDataStore.updateStats();
+    resetData()
+    redirectPage(NumberOfroundsLeft)
 }
 
 function updateData(){
-    let machineGuess = gameDataStore.setRandomMachineGuess();
-    if(machineGuess){
+    
+    if(gameDataStore.randomMachineGuess){
         gameDataStore.updateHeadCount()
     }else{
         gameDataStore.updateTailCount()
@@ -45,4 +47,22 @@ function comparisonLogic(){
         }
       }, 3000);   
 }
+let NumberOfroundsLeft
 
+function resetData(){
+  NumberOfroundsLeft = 20-gameDataStore.roundsPlayed
+  setTimeout(()=>{
+    document.getElementById("gameCount").textContent = `${NumberOfroundsLeft} rounds left`
+
+    playerGuess.resetGuess()
+    btnColorStore.resetBtnColors()
+  },5000)
+  
+}
+function redirectPage(roundsLeft){
+    if (roundsLeft === 0){
+      setTimeout(()=>{
+        window.location.href = '/gameForm.html'
+      },9000)
+    }
+}
