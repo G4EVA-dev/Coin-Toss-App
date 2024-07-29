@@ -28,8 +28,4 @@ export default {
         this.randomMachineGuess = Math.floor(Math.random()*2);
         return this.randomMachineGuess;
     },
-    updateStats() {
-        document.querySelector("#headsCount").textContent = `Heads: ${this.headCount}`;
-        document.querySelector("#tailsCount").textContent = `Tails: ${this.tailCount}`;
-      },
 }

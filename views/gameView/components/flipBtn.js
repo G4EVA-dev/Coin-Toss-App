@@ -13,20 +13,30 @@ export const flipCoin = function () {
   documentElementStore.coin.offsetHeight;
 
   if (machineGuess) {
+
     setTimeout(() => {
       documentElementStore.coin.style.animation = "spin-head 3s forwards";
+      setTimeout(()=>{
+        document.querySelector(".head").classList.remove("hidden")
+        document.querySelector(".tail").classList.add("hidden")
+      },1500)
       console.log("headSpins");
     }, 100);
   } else {
+
     setTimeout(() => {
       documentElementStore.coin.style.animation = "spin-tail 3s forwards";
+      setTimeout(()=>{
+        document.querySelector(".head").classList.add("hidden")
+        document.querySelector(".tail").classList.remove("hidden")
+      },1500)
       console.log("tailSpins");
     }, 100);
   }
 };
 
 
-documentElementStore.coin.addEventListener("click", flipCoin);
+
 
 
 
