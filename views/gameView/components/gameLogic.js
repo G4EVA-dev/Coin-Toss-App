@@ -69,6 +69,3 @@ function redirectPage(roundsLeft){
     }
 }
 
-// function endGame(){
-//   if()
-// }

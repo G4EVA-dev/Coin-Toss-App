@@ -7,4 +7,3 @@ export const tailClickAction = function (){
     console.log("Player's guess: ",playerGuess.guess)
     btnColor.setTailBtnColor();
 }
-

@@ -2,6 +2,7 @@
 
 import { user } from '../../models/userModel.js'
 
+// preparing data for POST request
 
 const player = new user()
 player.addThought();
@@ -13,6 +14,9 @@ const playerData = JSON.stringify({
     contact : player.contact,
 })
 
+
+// exporting required functions for form actions
+
 export const sendFormRequest = async ()=>{
     try {
         let response = await fetch('http://localhost:3001/user', {
@@ -23,9 +27,18 @@ export const sendFormRequest = async ()=>{
             body: playerData
         })
         let data = await response.json()
-        console.log("sucess: ", data)
+
     } catch (error) {
         console.log("error: ", error)
     }
 }
+export const displayThanksBox = ()=>{
+    document.getElementById("container").classList.add("hidden")
+    document.getElementById("container").classList.remove("flex")
+    document.getElementById("thanks_box").classList.add("flex")
+    document.getElementById("thanks_box").classList.remove("hidden")
+}
 
+export const browseTo = (link)=>{
+    window.open(link,"_blank")
+}
