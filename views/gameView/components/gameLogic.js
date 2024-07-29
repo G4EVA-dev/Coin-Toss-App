@@ -38,6 +38,8 @@ function updateData(){
 
 function comparisonLogic(){
     setTimeout(() => {
+      console.log("Machine's guess:", gameDataStore.randomMachineGuess)
+      console.log("Players guss at comparison:", playerGuess.guess)
         if (gameDataStore.randomMachineGuess === playerGuess.guess) {
           sounds.win.play();
           startCelebration();
@@ -66,3 +68,4 @@ function redirectPage(roundsLeft){
       },9000)
     }
 }
+
