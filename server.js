@@ -22,6 +22,8 @@ const server = http.createServer((req, res) => {
       handleResultPageRequest(req,res);
     }else if (req.url.startsWith('/result?id')){
       handleDatabaseResultRequest(database, req, res)
+    }else if(req.url === '/result'){
+      handleDatabaseResultRequest(database, req, res)
     }else{
       let filePath = '.'+req.url
       if (filePath === './'){

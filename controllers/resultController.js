@@ -28,3 +28,24 @@ export const getResultsData = (db,req,res)=>{
         res.end(JSON.stringify(doc),'utf-8')
      })
 }
+
+export const sendResultData = (db,req,res)=>{
+    let data=''
+    req.on('data',chunk=> data+=chunk)
+    req.on('end',()=>{
+        db.collection("results")
+        .insertOne(JSON.parse(data))
+        .then(jsonResult=>{
+            res.writeHead(201, {
+                'Content-type':"application/json"
+            })
+            res.end(JSON.stringify(jsonResult))
+        })
+        .catch(error=>{
+            res.writeHead(201,{
+            "Content-type" : "application/json"
+            })
+            res.end(JSON.stringify(error), 'utf-8')  
+        })
+    })
+}
