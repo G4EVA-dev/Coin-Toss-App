@@ -1,4 +1,4 @@
-import { getResultPage, getResultsData } from "../controllers/resultController.js";
+import { getResultPage, getResultsData, sendResultData } from "../controllers/resultController.js";
 
 export const handleResultPageRequest = (req, res)=>{
     if(req.url === '/result.html' && req.method === 'GET'){
@@ -9,5 +9,8 @@ export const handleResultPageRequest = (req, res)=>{
 export const handleDatabaseResultRequest = (db, req, res)=>{
     if(req.url.startsWith('/result?id') && req.method === 'GET'){
         getResultsData(db,req,res)
+    }
+    if(req.url === '/result' && req.method === 'POST'){
+        sendResultData(db,req,res)
     }
 }

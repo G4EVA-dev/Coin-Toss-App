@@ -5,8 +5,12 @@ import documentElementStore from "../../../stores/documentElementStore";
 import sounds from "../../../stores/soundStore";
 import { startCelebration } from "../../../stores/confettiStore";
 import btnColorStore from "../../../stores/btnColorStore";
+import { setId, getId} from "../../../stores/fetchIDforResult";
 
-
+let setIdfromOut
+let timeWhenGameBegins = new Date().getMinutes()
+const Id = {id:""}
+const resultIDObj = {}
 export const startGame = function(){
     if (playerGuess.guess === null) {
         alert("Please make a guess before flipping the coin!");
@@ -41,10 +45,12 @@ function comparisonLogic(){
       console.log("Machine's guess:", gameDataStore.randomMachineGuess)
       console.log("Players guss at comparison:", playerGuess.guess)
         if (gameDataStore.randomMachineGuess === playerGuess.guess) {
+          gameDataStore.setWins()
           sounds.win.play();
           startCelebration();
           
         } else {
+          gameDataStore.setLoses()
           sounds.lose.play();
         }
       }, 3000);   
@@ -61,11 +67,38 @@ function resetData(){
   },5000)
   
 }
-function redirectPage(roundsLeft){
-    if (roundsLeft === 0){
-      setTimeout(()=>{
-        window.location.href = '/gameForm.html'
-      },9000)
-    }
+
+
+async function redirectPage(roundsLeft) {
+  if (roundsLeft === 0) {
+    let timeWhenGameEnds = new Date().getMinutes();
+    let usersResult = JSON.stringify({
+      numberOfCorrectGuesses: gameDataStore.wins,
+      minutesSpent: timeWhenGameEnds - timeWhenGameBegins,
+    });
+    let resultID = await sendResults(usersResult);
+    setId(resultID); // Set the Id after getting the resultID
+    localStorage.setItem('resultID',resultID)
+    console.log(`Modified Id: ${resultID}`);
+    setTimeout(() => {
+      window.location.href = '/gameForm.html';
+    }, 9000);
+  }
 }
 
+async function sendResults(resultData){
+  let response = await fetch('/result',{
+    method: 'POST',
+    headers: {
+    'Content-Type': 'application/json'
+    },
+    body: resultData
+})
+ let data = await response.json()
+ 
+ return data.insertedId
+}
+
+
+
+export default setIdfromOut

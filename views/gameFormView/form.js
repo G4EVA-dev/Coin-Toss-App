@@ -7,7 +7,6 @@ import formMethods from "../../stores/formNotificationMethods";
 import { browseTo, displayThanksBox, sendFormRequest } from "./dataSender";
 
 
-
 // Form verification Logic
 
 const formVerfication = {
@@ -79,7 +78,7 @@ formData.formElements.formInput_3.addEventListener('change',()=>{
 
 formData.formElements.submitBtn.addEventListener('click', (e) => {
     e.preventDefault()
-    // sendFormRequest()
+    sendFormRequest()
     displayThanksBox()
     browseTo("/result.html")
   });

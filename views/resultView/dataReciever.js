@@ -33,9 +33,9 @@ export const restorePreviousPage = async ()=>{
     }
 }
 
-let resultID = "669fc6abe65d91407ad5e673";
+// let resultID = "669fc6abe65d91407ad5e673";
 
-export const requestResultData =  async ()=>{
+export const requestResultData =  async (resultID)=>{
     try {
         let response = await fetch(`http://localhost:443/result?id=${resultID}`)
         let data = await response.json()
