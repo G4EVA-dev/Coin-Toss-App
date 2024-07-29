@@ -19,7 +19,7 @@ const playerData = JSON.stringify({
 
 export const sendFormRequest = async ()=>{
     try {
-        let response = await fetch('http://localhost:443/user', {
+        let response = await fetch('http://localhost:3001/user', {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json'

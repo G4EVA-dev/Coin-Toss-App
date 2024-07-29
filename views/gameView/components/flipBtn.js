@@ -34,3 +34,4 @@ export const flipCoin = function () {
     }, 100);
   }
 };
+

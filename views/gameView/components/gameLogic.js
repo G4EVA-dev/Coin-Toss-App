@@ -42,6 +42,8 @@ function updateData(){
 
 function comparisonLogic(){
     setTimeout(() => {
+      console.log("Machine's guess:", gameDataStore.randomMachineGuess)
+      console.log("Players guss at comparison:", playerGuess.guess)
         if (gameDataStore.randomMachineGuess === playerGuess.guess) {
           gameDataStore.setWins()
           sounds.win.play();
