@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "api/**/*.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      { "src": "/user", "dest": "/api/user.js" },
+      { "src": "/result", "dest": "/api/results.js" },
+      { "src": "/result\\?.*", "dest": "/api/results.js" },  
+      { "src": "/.*", "dest": "/api/game.js" }
+    ]
+  }
